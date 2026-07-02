@@ -21,16 +21,9 @@ QUIVER_TOKEN = os.environ["QUIVER_API_KEY"]
 DRIVE_FOLDER_ID = "1OHkZnvWHr13aAF7tq5dLph4Gs1wK7RlY"
 QUIVER_BASE = "https://api.quiverquant.com/beta"
 
-# Aschenbrenner longs — congressional overlap upgrades these to TOP SIGNAL
 ASCHENBRENNER_LONGS = ["NBIS","SNDK","BE","CRWV","CORZ","IREN","APLD","RIOT","CLSK","SEI","BTDR"]
-
-# High-priority politicians
 VIP_POLITICIANS = ["nancy pelosi","scott bessent","lutnick","wright","gabbard"]
-
-# Key committees (checked via politician lookup if needed)
 KEY_COMMITTEES = ["armed services","intelligence","finance","science","technology","energy"]
-
-# Tickers to watch for SELL signals (open positions — update as positions change)
 OPEN_POSITIONS = ["AMZN","UBER"]
 
 HEADERS = {"Authorization": f"Bearer {QUIVER_TOKEN}"}
@@ -66,10 +59,21 @@ def get_contracts():
     r.raise_for_status()
     return r.json()
 
+def get_dark_pool(ticker):
+    url = f"{QUIVER_BASE}/historical/darkpool/{ticker}"
+    r = requests.get(url, headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+def get_trump_trades():
+    url = f"{QUIVER_BASE}/live/trumptrades"
+    r = requests.get(url, headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
 # ── Signal processing ─────────────────────────────────────────────────────────
 
 def process_congress(raw):
-    """Filter and score congressional trades."""
     buys = []
     sells = []
 
@@ -84,14 +88,11 @@ def process_congress(raw):
         amount = t.get("amount") or t.get("Amount") or ""
         politician = (t.get("representative") or t.get("Representative") or "").lower()
 
-        # Filed within 30 days
         if filed < thirty_days_ago:
             continue
 
         if "purchase" in txn or "buy" in txn:
-            # Skip tiny amounts unless VIP
             is_vip = any(vip in politician for vip in VIP_POLITICIANS)
-            amount_lower = amount.lower()
             is_meaningful = (
                 "50,001" in amount or "100,001" in amount or "250,001" in amount
                 or "500,001" in amount or "1,000,001" in amount
@@ -124,7 +125,6 @@ def process_congress(raw):
                     "action": "EXIT_SIGNAL — congressional SELL on open position"
                 })
 
-    # Detect clusters: 2+ members buying same ticker within 7 days
     from collections import defaultdict
     ticker_buys = defaultdict(list)
     for b in buys:
@@ -133,12 +133,10 @@ def process_congress(raw):
     clusters = []
     for ticker, entries in ticker_buys.items():
         if len(entries) >= 2:
-            # Check if within 7-day window
             dates = [datetime.fromisoformat(e["filed"]).date() for e in entries if e.get("filed")]
             if dates and (max(dates) - min(dates)).days <= 7:
                 clusters.append(ticker)
 
-    # Flag clusters and VIPs
     for b in buys:
         b["is_cluster"] = b["ticker"] in clusters
         b["cluster_count"] = len(ticker_buys[b["ticker"]]) if b["ticker"] in clusters else 1
@@ -146,7 +144,6 @@ def process_congress(raw):
     return buys, sells
 
 def process_insiders(raw):
-    """Filter C-suite purchases over $100K."""
     results = []
     c_suite_titles = ["chief executive","chief financial","chief operating","president","ceo","cfo","coo"]
 
@@ -191,7 +188,6 @@ def process_insiders(raw):
     return results
 
 def process_lobbying(raw):
-    """Flag companies with significant lobbying activity."""
     results = []
     for t in raw:
         ticker = t.get("Ticker") or t.get("ticker") or ""
@@ -201,7 +197,7 @@ def process_lobbying(raw):
         date = t.get("Date") or t.get("date") or ""
         if date < thirty_days_ago:
             continue
-        if amount >= 500000:  # $500K+ lobbying spend worth flagging
+        if amount >= 500000:
             results.append({
                 "ticker": ticker.upper(),
                 "amount": amount,
@@ -211,7 +207,6 @@ def process_lobbying(raw):
     return results
 
 def process_contracts(raw):
-    """Flag government contracts over $50M."""
     results = []
     for t in raw:
         ticker = t.get("Ticker") or t.get("ticker") or ""
@@ -221,7 +216,7 @@ def process_contracts(raw):
         date = t.get("Date") or t.get("date") or ""
         if date < thirty_days_ago:
             continue
-        if amount >= 50000000:  # $50M+
+        if amount >= 50000000:
             results.append({
                 "ticker": ticker.upper(),
                 "amount": amount,
@@ -231,21 +226,32 @@ def process_contracts(raw):
             })
     return results
 
-# ── Signal scoring and combination ────────────────────────────────────────────
+def process_trump_trades(raw):
+    results = []
+    for t in raw:
+        ticker = t.get("Ticker") or t.get("ticker") or ""
+        if not ticker or ticker == "N/A":
+            continue
+        date = t.get("Date") or t.get("date") or ""
+        if date < thirty_days_ago:
+            continue
+        txn = (t.get("Transaction") or t.get("transaction") or "").lower()
+        if "purchase" in txn or "buy" in txn:
+            results.append({
+                "ticker": ticker.upper(),
+                "date": date,
+                "amount": t.get("Amount") or t.get("amount") or "",
+                "entity": t.get("Entity") or t.get("entity") or ""
+            })
+    return results
 
-def build_signal_map(congress_buys, insiders, lobbying, contracts):
-    """
-    Cross-reference all datasets. Assign signal tier per ticker.
-    Tier 1 = TOP SIGNAL (3+ datasets)
-    Tier 2 = DOUBLE SIGNAL (2 datasets)
-    Tier 3 = Congressional cluster
-    Tier 4 = Congressional VIP/committee single
-    Tier 5 = Insider only
-    """
+# ── Signal scoring ────────────────────────────────────────────────────────────
+
+def build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades):
     from collections import defaultdict
     ticker_data = defaultdict(lambda: {
         "congress": [], "insider": [], "lobbying": [],
-        "contracts": [], "datasets": 0, "tier": 0, "signals": []
+        "contracts": [], "trump": [], "datasets": 0, "tier": 0, "signals": []
     })
 
     for b in congress_buys:
@@ -268,14 +274,19 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts):
         ticker_data[t]["contracts"].append(c)
         ticker_data[t]["signals"].append(f"Gov contract: {c['amount_formatted']} ({c['date']})")
 
-    # Count datasets and assign tier
+    for tr in trump_trades:
+        t = tr["ticker"]
+        ticker_data[t]["trump"].append(tr)
+        ticker_data[t]["signals"].append(f"Trump trade: {tr['entity']} {tr['amount']} ({tr['date']})")
+
     results = []
     for ticker, data in ticker_data.items():
         datasets = sum([
             1 if data["congress"] else 0,
             1 if data["insider"] else 0,
             1 if data["lobbying"] else 0,
-            1 if data["contracts"] else 0
+            1 if data["contracts"] else 0,
+            1 if data["trump"] else 0
         ])
         data["datasets"] = datasets
         data["ticker"] = ticker
@@ -284,6 +295,7 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts):
         is_cluster = any(b.get("is_cluster") for b in congress_entries)
         is_vip = any(b.get("is_vip") for b in congress_entries)
         is_aschenbrenner = ticker in ASCHENBRENNER_LONGS
+        has_trump = bool(data["trump"])
 
         if datasets >= 3:
             tier = 1
@@ -294,7 +306,7 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts):
         elif is_cluster:
             tier = 3
             tier_label = "CONGRESSIONAL CLUSTER"
-        elif is_vip and congress_entries:
+        elif (is_vip or has_trump) and congress_entries:
             tier = 4
             tier_label = "VIP CONGRESSIONAL BUY"
         elif congress_entries:
@@ -307,20 +319,19 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts):
             tier = 6
             tier_label = "LOBBYING/CONTRACT ONLY"
 
-        # Aschenbrenner overlap boosts
         if is_aschenbrenner and tier > 2:
             tier = min(tier, 2)
             tier_label = f"ASCHENBRENNER + {tier_label}"
 
-        # Base score from tier
         tier_score = {1: 30, 2: 25, 3: 20, 4: 15, 5: 10, 6: 5}.get(tier, 5)
         dataset_bonus = min(datasets * 5, 15)
         freshness = 5 if any(
             (today - datetime.fromisoformat(b["filed"]).date()).days <= 14
             for b in congress_entries if b.get("filed")
         ) else 2 if congress_entries else 0
+        trump_bonus = 5 if has_trump else 0
 
-        quiver_score = tier_score + dataset_bonus + freshness
+        quiver_score = tier_score + dataset_bonus + freshness + trump_bonus
 
         results.append({
             "ticker": ticker,
@@ -331,21 +342,21 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts):
             "is_cluster": is_cluster,
             "is_vip": is_vip,
             "is_aschenbrenner": is_aschenbrenner,
+            "has_trump_signal": has_trump,
             "signals": data["signals"],
             "congress_entries": congress_entries,
             "insider_entries": data["insider"],
             "lobbying_entries": data["lobbying"],
-            "contract_entries": data["contracts"]
+            "contract_entries": data["contracts"],
+            "trump_entries": data["trump"]
         })
 
-    # Sort by tier then score
     results.sort(key=lambda x: (x["tier"], -x["quiver_score"]))
     return results
 
 # ── Google Drive write ────────────────────────────────────────────────────────
 
 def write_to_drive(data: dict):
-    """Write quiver_signals.json to the trading bot's Drive folder."""
     creds_json = os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]
     creds_dict = json.loads(creds_json)
     creds = service_account.Credentials.from_service_account_info(
@@ -354,7 +365,6 @@ def write_to_drive(data: dict):
     )
     service = build("drive", "v3", credentials=creds)
 
-    # Delete existing quiver_signals.json files to avoid accumulation
     existing = service.files().list(
         q=f"name='quiver_signals.json' and '{DRIVE_FOLDER_ID}' in parents",
         fields="files(id,name)"
@@ -363,7 +373,6 @@ def write_to_drive(data: dict):
     for f in existing.get("files", []):
         service.files().delete(fileId=f["id"]).execute()
 
-    # Write new file
     content = json.dumps(data, indent=2, default=str).encode("utf-8")
     media = MediaInMemoryUpload(content, mimetype="application/json")
     file_metadata = {
@@ -388,26 +397,60 @@ def main():
     congress_raw = get_congress_trades()
 
     print("Fetching insider trades...")
-    insider_raw = get_insider_trades()
+    try:
+        insider_raw = get_insider_trades()
+        print(f"  Got {len(insider_raw)} insider records")
+    except Exception as e:
+        print(f"  Insider trades unavailable (tier restriction): {e}")
+        insider_raw = []
 
     print("Fetching lobbying data...")
-    lobbying_raw = get_lobbying()
+    try:
+        lobbying_raw = get_lobbying()
+        print(f"  Got {len(lobbying_raw)} lobbying records")
+    except Exception as e:
+        print(f"  Lobbying unavailable (tier restriction): {e}")
+        lobbying_raw = []
 
     print("Fetching government contracts...")
-    contracts_raw = get_contracts()
+    try:
+        contracts_raw = get_contracts()
+        print(f"  Got {len(contracts_raw)} contract records")
+    except Exception as e:
+        print(f"  Contracts unavailable (tier restriction): {e}")
+        contracts_raw = []
+
+    print("Fetching Trump trades...")
+    try:
+        trump_raw = get_trump_trades()
+        print(f"  Got {len(trump_raw)} Trump trade records")
+    except Exception as e:
+        print(f"  Trump trades unavailable (tier restriction): {e}")
+        trump_raw = []
 
     print("Processing signals...")
     congress_buys, exit_signals = process_congress(congress_raw)
     insiders = process_insiders(insider_raw)
     lobbying = process_lobbying(lobbying_raw)
     contracts = process_contracts(contracts_raw)
+    trump_trades = process_trump_trades(trump_raw)
 
     print("Building signal map...")
-    signals = build_signal_map(congress_buys, insiders, lobbying, contracts)
+    signals = build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades)
+
+    # Track which endpoints were available for the report
+    endpoints_available = {
+        "congressional_trades": True,
+        "insider_trades": len(insider_raw) > 0,
+        "lobbying": len(lobbying_raw) > 0,
+        "government_contracts": len(contracts_raw) > 0,
+        "trump_trades": len(trump_raw) > 0
+    }
 
     output = {
         "generated": today.isoformat(),
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "endpoints_available": endpoints_available,
         "exit_signals": exit_signals,
         "top_signals": [s for s in signals if s["tier"] == 1],
         "double_signals": [s for s in signals if s["tier"] == 2],
@@ -422,11 +465,13 @@ def main():
             "clusters": len([s for s in signals if s["is_cluster"]]),
             "exit_signals": len(exit_signals),
             "congressional_buys_processed": len(congress_buys),
-            "insider_buys_processed": len(insiders)
+            "insider_buys_processed": len(insiders),
+            "trump_trades_processed": len(trump_trades)
         }
     }
 
     print(f"Signals found: {output['summary']}")
+    print(f"Endpoints available: {endpoints_available}")
     print("Writing to Google Drive...")
     result = write_to_drive(output)
     print(f"Written: {result['name']} ({result['id']})")
