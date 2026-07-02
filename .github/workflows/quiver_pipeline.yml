@@ -1,0 +1,31 @@
+name: Quiver Research Pipeline
+
+on:
+  schedule:
+    # 6:45pm ET on weekdays (22:45 UTC, accounting for EDT offset)
+    - cron: '45 22 * * 1-5'
+  workflow_dispatch:  # Manual trigger for testing
+
+jobs:
+  run-quiver-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests google-auth google-auth-httplib2 google-api-python-client
+
+      - name: Run Quiver research pipeline
+        env:
+          QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python quiver_research.py
