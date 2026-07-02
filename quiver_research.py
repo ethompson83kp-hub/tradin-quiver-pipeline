@@ -1,10 +1,6 @@
 """
-quiver_research.py
-Pulls congressional trades, insider purchases, government contracts,
-and lobbying data from Quiver Quantitative REST API.
-Scores signals against swing strategy v2.1 rules.
-Writes quiver_signals.json to Google Drive folder.
-
+quiver_research.py — Swing Strategy v2.1
+Pulls Quiver data, scores signals, writes quiver_signals.json to Google Drive.
 Runs via GitHub Actions at 6:45pm ET every weekday.
 """
 
@@ -23,7 +19,6 @@ QUIVER_BASE = "https://api.quiverquant.com/beta"
 
 ASCHENBRENNER_LONGS = ["NBIS","SNDK","BE","CRWV","CORZ","IREN","APLD","RIOT","CLSK","SEI","BTDR"]
 VIP_POLITICIANS = ["nancy pelosi","scott bessent","lutnick","wright","gabbard"]
-KEY_COMMITTEES = ["armed services","intelligence","finance","science","technology","energy"]
 OPEN_POSITIONS = ["AMZN","UBER"]
 
 HEADERS = {"Authorization": f"Bearer {QUIVER_TOKEN}"}
@@ -31,7 +26,6 @@ HEADERS = {"Authorization": f"Bearer {QUIVER_TOKEN}"}
 today = datetime.now(timezone.utc).date()
 thirty_days_ago = (today - timedelta(days=30)).isoformat()
 fourteen_days_ago = (today - timedelta(days=14)).isoformat()
-seven_days_ago = (today - timedelta(days=7)).isoformat()
 
 # ── Quiver API calls ──────────────────────────────────────────────────────────
 
@@ -70,54 +64,56 @@ def get_trump_trades():
 def process_congress(raw):
     buys = []
     sells = []
+    print(f"  Raw congressional records: {len(raw)}")
 
     for t in raw:
-        ticker = t.get("ticker") or t.get("Ticker")
-        if not ticker or ticker == "N/A":
+        ticker = t.get("Ticker") or t.get("ticker") or ""
+        ticker = ticker.strip().upper()
+        if not ticker or ticker in ("N/A", ""):
             continue
 
-        txn = (t.get("transaction") or t.get("Transaction") or "").lower()
-        filed = t.get("filed") or t.get("Filed") or ""
-        traded = t.get("traded") or t.get("Traded") or ""
-        amount = t.get("amount") or t.get("Amount") or ""
-        politician = (t.get("representative") or t.get("Representative") or "").lower()
+        txn = (t.get("Transaction") or t.get("transaction") or "").lower().strip()
+        filed = (t.get("Filed") or t.get("filed") or "").strip()
+        traded = (t.get("Traded") or t.get("traded") or "").strip()
+        amount = (t.get("Amount") or t.get("amount") or "").strip()
+        politician = (t.get("Representative") or t.get("representative") or "").lower().strip()
 
-        if filed < thirty_days_ago:
+        if not filed:
             continue
+        try:
+            filed_date = datetime.fromisoformat(filed).date()
+        except ValueError:
+            continue
+        if filed_date < datetime.fromisoformat(thirty_days_ago).date():
+            continue
+
+        is_vip = any(vip in politician for vip in VIP_POLITICIANS)
 
         if "purchase" in txn or "buy" in txn:
-            is_vip = any(vip in politician for vip in VIP_POLITICIANS)
-            is_meaningful = (
-                "50,001" in amount or "100,001" in amount or "250,001" in amount
-                or "500,001" in amount or "1,000,001" in amount
-                or (is_vip and "15,000" in amount)
-                or (is_vip and "1,001" in amount)
-            )
-            if not is_meaningful and not is_vip:
-                continue
-
             buys.append({
-                "ticker": ticker.upper(),
-                "politician": t.get("representative") or t.get("Representative"),
-                "chamber": t.get("chamber") or t.get("Chamber"),
-                "party": t.get("party") or t.get("Party"),
+                "ticker": ticker,
+                "politician": t.get("Representative") or t.get("representative") or "",
+                "chamber": t.get("Chamber") or t.get("chamber") or "",
+                "party": t.get("Party") or t.get("party") or "",
                 "amount": amount,
                 "traded": traded,
                 "filed": filed,
-                "days_old": (today - datetime.fromisoformat(filed).date()).days if filed else 99,
+                "days_old": (today - filed_date).days,
                 "is_vip": is_vip,
-                "is_aschenbrenner": ticker.upper() in ASCHENBRENNER_LONGS
+                "is_aschenbrenner": ticker in ASCHENBRENNER_LONGS
             })
 
         elif "sale" in txn or "sell" in txn:
-            if ticker.upper() in OPEN_POSITIONS:
+            if ticker in OPEN_POSITIONS:
                 sells.append({
-                    "ticker": ticker.upper(),
-                    "politician": t.get("representative") or t.get("Representative"),
+                    "ticker": ticker,
+                    "politician": t.get("Representative") or t.get("representative") or "",
                     "amount": amount,
                     "filed": filed,
                     "action": "EXIT_SIGNAL — congressional SELL on open position"
                 })
+
+    print(f"  Congressional buys after filter: {len(buys)}, sells: {len(sells)}")
 
     from collections import defaultdict
     ticker_buys = defaultdict(list)
@@ -127,9 +123,12 @@ def process_congress(raw):
     clusters = []
     for ticker, entries in ticker_buys.items():
         if len(entries) >= 2:
-            dates = [datetime.fromisoformat(e["filed"]).date() for e in entries if e.get("filed")]
-            if dates and (max(dates) - min(dates)).days <= 7:
-                clusters.append(ticker)
+            try:
+                dates = [datetime.fromisoformat(e["filed"]).date() for e in entries if e.get("filed")]
+                if dates and (max(dates) - min(dates)).days <= 7:
+                    clusters.append(ticker)
+            except Exception:
+                pass
 
     for b in buys:
         b["is_cluster"] = b["ticker"] in clusters
@@ -142,7 +141,7 @@ def process_insiders(raw):
     c_suite_titles = ["chief executive","chief financial","chief operating","president","ceo","cfo","coo"]
 
     for t in raw:
-        ticker = t.get("ticker") or ""
+        ticker = (t.get("ticker") or "").strip().upper()
         if not ticker or ticker == "N/A":
             continue
 
@@ -150,17 +149,19 @@ def process_insiders(raw):
         if txn_code != "P":
             continue
 
-        date = t.get("date") or t.get("Date") or ""
-        if date < fourteen_days_ago:
+        date = (t.get("date") or t.get("Date") or "").strip()
+        if not date or date < fourteen_days_ago:
             continue
 
-        shares = float(t.get("shares") or t.get("Shares") or 0)
-        price = float(t.get("price") or t.get("Price") or 0)
-        dollar_value = shares * price
-        title = (t.get("officer_title") or t.get("OfficerTitle") or "").lower()
-        is_director = t.get("is_director") or False
-        is_officer = t.get("is_officer") or False
+        try:
+            shares = float(t.get("shares") or 0)
+            price = float(t.get("price") or 0)
+        except (TypeError, ValueError):
+            continue
 
+        dollar_value = shares * price
+        title = (t.get("officer_title") or "").lower()
+        is_director = bool(t.get("is_director"))
         is_csuite = any(c in title for c in c_suite_titles)
         qualifies = (is_csuite and dollar_value >= 25000) or (is_director and dollar_value >= 100000)
 
@@ -168,7 +169,7 @@ def process_insiders(raw):
             continue
 
         results.append({
-            "ticker": ticker.upper(),
+            "ticker": ticker,
             "owner": t.get("owner") or "",
             "title": t.get("officer_title") or "",
             "shares": shares,
@@ -184,16 +185,19 @@ def process_insiders(raw):
 def process_lobbying(raw):
     results = []
     for t in raw:
-        ticker = t.get("Ticker") or t.get("ticker") or ""
+        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
         if not ticker:
             continue
-        amount = float(t.get("Amount") or t.get("amount") or 0)
-        date = t.get("Date") or t.get("date") or ""
-        if date < thirty_days_ago:
+        try:
+            amount = float(t.get("Amount") or t.get("amount") or 0)
+        except (TypeError, ValueError):
+            continue
+        date = (t.get("Date") or t.get("date") or "").strip()
+        if not date or date < thirty_days_ago:
             continue
         if amount >= 500000:
             results.append({
-                "ticker": ticker.upper(),
+                "ticker": ticker,
                 "amount": amount,
                 "date": date,
                 "client": t.get("Client") or t.get("client") or ""
@@ -203,16 +207,19 @@ def process_lobbying(raw):
 def process_contracts(raw):
     results = []
     for t in raw:
-        ticker = t.get("Ticker") or t.get("ticker") or ""
+        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
         if not ticker:
             continue
-        amount = float(t.get("Amount") or t.get("amount") or 0)
-        date = t.get("Date") or t.get("date") or ""
-        if date < thirty_days_ago:
+        try:
+            amount = float(t.get("Amount") or t.get("amount") or 0)
+        except (TypeError, ValueError):
+            continue
+        date = (t.get("Date") or t.get("date") or "").strip()
+        if not date or date < thirty_days_ago:
             continue
         if amount >= 50000000:
             results.append({
-                "ticker": ticker.upper(),
+                "ticker": ticker,
                 "amount": amount,
                 "amount_formatted": f"${amount/1e6:.1f}M",
                 "date": date,
@@ -223,45 +230,49 @@ def process_contracts(raw):
 def process_trump_trades(raw):
     results = []
     for t in raw:
-        ticker = t.get("Ticker") or t.get("ticker") or ""
+        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
         if not ticker or ticker == "N/A":
             continue
-        date = t.get("Date") or t.get("date") or ""
-        if date < thirty_days_ago:
+        date = (t.get("Date") or t.get("date") or "").strip()
+        if not date or date < thirty_days_ago:
             continue
         txn = (t.get("Transaction") or t.get("transaction") or "").lower()
         if "purchase" in txn or "buy" in txn:
             results.append({
-                "ticker": ticker.upper(),
+                "ticker": ticker,
                 "date": date,
                 "amount": t.get("Amount") or t.get("amount") or "",
                 "entity": t.get("Entity") or t.get("entity") or ""
             })
     return results
 
-# ── Signal scoring ────────────────────────────────────────────────────────────
+# ── Signal map ────────────────────────────────────────────────────────────────
 
 def build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades):
     from collections import defaultdict
     ticker_data = defaultdict(lambda: {
         "congress": [], "insider": [], "lobbying": [],
-        "contracts": [], "trump": [], "datasets": 0, "tier": 0, "signals": []
+        "contracts": [], "trump": [], "signals": []
     })
 
     for b in congress_buys:
         t = b["ticker"]
         ticker_data[t]["congress"].append(b)
-        ticker_data[t]["signals"].append(f"Congressional buy: {b['politician']} {b['amount']} (filed {b['filed']})")
+        ticker_data[t]["signals"].append(
+            f"Congressional buy: {b['politician']} {b['amount']} (filed {b['filed']}, {b['days_old']}d ago)"
+        )
 
     for i in insiders:
         t = i["ticker"]
         ticker_data[t]["insider"].append(i)
-        ticker_data[t]["signals"].append(f"Insider buy: {i['owner']} ({i['title']}) ${i['dollar_value']:,.0f}")
+        ticker_data[t]["signals"].append(
+            f"Insider buy: {i['owner']} ({i['title']}) ${i['dollar_value']:,.0f}"
+        )
 
     for l in lobbying:
         t = l["ticker"]
         ticker_data[t]["lobbying"].append(l)
-        ticker_data[t]["signals"].append(f"Lobbying: ${l['amount']/1e6:.1f}M")
+        ticker_data[t]["signals"].append(f"Lobbying: ${l['amount']/1e6:.1f}M ({l['date']})")
 
     for c in contracts:
         t = c["ticker"]
@@ -282,8 +293,6 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades)
             1 if data["contracts"] else 0,
             1 if data["trump"] else 0
         ])
-        data["datasets"] = datasets
-        data["ticker"] = ticker
 
         congress_entries = data["congress"]
         is_cluster = any(b.get("is_cluster") for b in congress_entries)
@@ -292,39 +301,28 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades)
         has_trump = bool(data["trump"])
 
         if datasets >= 3:
-            tier = 1
-            tier_label = "TOP SIGNAL"
+            tier, tier_label = 1, "TOP SIGNAL"
         elif datasets == 2:
-            tier = 2
-            tier_label = "DOUBLE SIGNAL"
+            tier, tier_label = 2, "DOUBLE SIGNAL"
         elif is_cluster:
-            tier = 3
-            tier_label = "CONGRESSIONAL CLUSTER"
+            tier, tier_label = 3, "CONGRESSIONAL CLUSTER"
         elif (is_vip or has_trump) and congress_entries:
-            tier = 4
-            tier_label = "VIP CONGRESSIONAL BUY"
+            tier, tier_label = 4, "VIP CONGRESSIONAL BUY"
         elif congress_entries:
-            tier = 4
-            tier_label = "CONGRESSIONAL BUY"
+            tier, tier_label = 4, "CONGRESSIONAL BUY"
         elif data["insider"]:
-            tier = 5
-            tier_label = "INSIDER BUY"
+            tier, tier_label = 5, "INSIDER BUY"
         else:
-            tier = 6
-            tier_label = "LOBBYING/CONTRACT ONLY"
+            tier, tier_label = 6, "LOBBYING/CONTRACT ONLY"
 
         if is_aschenbrenner and tier > 2:
-            tier = min(tier, 2)
+            tier = 2
             tier_label = f"ASCHENBRENNER + {tier_label}"
 
         tier_score = {1: 30, 2: 25, 3: 20, 4: 15, 5: 10, 6: 5}.get(tier, 5)
         dataset_bonus = min(datasets * 5, 15)
-        freshness = 5 if any(
-            (today - datetime.fromisoformat(b["filed"]).date()).days <= 14
-            for b in congress_entries if b.get("filed")
-        ) else 2 if congress_entries else 0
+        freshness = 5 if any(b.get("days_old", 99) <= 14 for b in congress_entries) else 2 if congress_entries else 0
         trump_bonus = 5 if has_trump else 0
-
         quiver_score = tier_score + dataset_bonus + freshness + trump_bonus
 
         results.append({
@@ -353,19 +351,30 @@ def build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades)
 def write_to_drive(data: dict):
     creds_json = os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]
     creds_dict = json.loads(creds_json)
+    delegated_email = os.environ.get("GOOGLE_DELEGATED_EMAIL", "")
+
     creds = service_account.Credentials.from_service_account_info(
         creds_dict,
         scopes=["https://www.googleapis.com/auth/drive"]
     )
+
+    if delegated_email:
+        creds = creds.with_subject(delegated_email)
+
     service = build("drive", "v3", credentials=creds)
 
-    existing = service.files().list(
-        q=f"name='quiver_signals.json' and '{DRIVE_FOLDER_ID}' in parents",
-        fields="files(id,name)"
-    ).execute()
-
-    for f in existing.get("files", []):
-        service.files().delete(fileId=f["id"]).execute()
+    try:
+        existing = service.files().list(
+            q=f"name='quiver_signals.json' and '{DRIVE_FOLDER_ID}' in parents",
+            fields="files(id,name)",
+            supportsAllDrives=True,
+            includeItemsFromAllDrives=True
+        ).execute()
+        for f in existing.get("files", []):
+            service.files().delete(fileId=f["id"], supportsAllDrives=True).execute()
+            print(f"  Deleted old file: {f['id']}")
+    except Exception as e:
+        print(f"  Warning: could not delete old files: {e}")
 
     content = json.dumps(data, indent=2, default=str).encode("utf-8")
     media = MediaInMemoryUpload(content, mimetype="application/json")
@@ -377,7 +386,8 @@ def write_to_drive(data: dict):
     result = service.files().create(
         body=file_metadata,
         media_body=media,
-        fields="id,name,createdTime"
+        fields="id,name,createdTime",
+        supportsAllDrives=True
     ).execute()
 
     return result
@@ -389,13 +399,14 @@ def main():
 
     print("Fetching congressional trades...")
     congress_raw = get_congress_trades()
+    print(f"  Got {len(congress_raw)} raw records")
 
     print("Fetching insider trades...")
     try:
         insider_raw = get_insider_trades()
         print(f"  Got {len(insider_raw)} insider records")
     except Exception as e:
-        print(f"  Insider trades unavailable (tier restriction): {e}")
+        print(f"  Insider trades unavailable: {e}")
         insider_raw = []
 
     print("Fetching lobbying data...")
@@ -403,7 +414,7 @@ def main():
         lobbying_raw = get_lobbying()
         print(f"  Got {len(lobbying_raw)} lobbying records")
     except Exception as e:
-        print(f"  Lobbying unavailable (tier restriction): {e}")
+        print(f"  Lobbying unavailable: {e}")
         lobbying_raw = []
 
     print("Fetching government contracts...")
@@ -411,7 +422,7 @@ def main():
         contracts_raw = get_contracts()
         print(f"  Got {len(contracts_raw)} contract records")
     except Exception as e:
-        print(f"  Contracts unavailable (tier restriction): {e}")
+        print(f"  Contracts unavailable: {e}")
         contracts_raw = []
 
     print("Fetching Trump trades...")
@@ -419,7 +430,7 @@ def main():
         trump_raw = get_trump_trades()
         print(f"  Got {len(trump_raw)} Trump trade records")
     except Exception as e:
-        print(f"  Trump trades unavailable (tier restriction): {e}")
+        print(f"  Trump trades unavailable: {e}")
         trump_raw = []
 
     print("Processing signals...")
@@ -427,10 +438,10 @@ def main():
     insiders = process_insiders(insider_raw)
     lobbying = process_lobbying(lobbying_raw)
     contracts = process_contracts(contracts_raw)
-    trump_trades = process_trump_trades(trump_raw)
+    trump_trades_processed = process_trump_trades(trump_raw)
 
     print("Building signal map...")
-    signals = build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades)
+    signals = build_signal_map(congress_buys, insiders, lobbying, contracts, trump_trades_processed)
 
     endpoints_available = {
         "congressional_trades": True,
@@ -456,15 +467,17 @@ def main():
             "top_signals": len([s for s in signals if s["tier"] == 1]),
             "double_signals": len([s for s in signals if s["tier"] == 2]),
             "clusters": len([s for s in signals if s["is_cluster"]]),
+            "vip_buys": len([s for s in signals if s["is_vip"]]),
             "exit_signals": len(exit_signals),
             "congressional_buys_processed": len(congress_buys),
             "insider_buys_processed": len(insiders),
-            "trump_trades_processed": len(trump_trades)
+            "lobbying_processed": len(lobbying),
+            "trump_trades_processed": len(trump_trades_processed)
         }
     }
 
-    print(f"Signals found: {output['summary']}")
-    print(f"Endpoints available: {endpoints_available}")
+    print(f"Signals: {output['summary']}")
+    print(f"Endpoints: {endpoints_available}")
     print("Writing to Google Drive...")
     result = write_to_drive(output)
     print(f"Written: {result['name']} ({result['id']})")
