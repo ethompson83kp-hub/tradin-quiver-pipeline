@@ -20,46 +20,17 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests google-auth google-auth-httplib2 google-api-python-client
+        run: pip install requests
 
       - name: Run Quiver research pipeline
         env:
           QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
         run: python quiver_research.py
 
-      - name: Upload to Google Drive
-        env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      - name: Commit signals to repo
         run: |
-          python << 'EOF'
-          import os, json
-          from google.oauth2 import service_account
-          from googleapiclient.discovery import build
-          from googleapiclient.http import MediaFileUpload
-
-          creds = service_account.Credentials.from_service_account_info(
-              json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]),
-              scopes=["https://www.googleapis.com/auth/drive"]
-          )
-          service = build("drive", "v3", credentials=creds)
-          folder_id = "1OHkZnvWHr13aAF7tq5dLph4Gs1wK7RlY"
-
-          existing = service.files().list(
-              q=f"name='quiver_signals.json' and '{folder_id}' in parents",
-              fields="files(id)",
-              supportsAllDrives=True,
-              includeItemsFromAllDrives=True
-          ).execute()
-          for f in existing.get("files", []):
-              service.files().delete(fileId=f["id"], supportsAllDrives=True).execute()
-              print(f"Deleted: {f['id']}")
-
-          media = MediaFileUpload("quiver_signals.json", mimetype="application/json")
-          result = service.files().create(
-              body={"name": "quiver_signals.json", "parents": [folder_id]},
-              media_body=media,
-              fields="id,name",
-              supportsAllDrives=True
-          ).execute()
-          print(f"Uploaded: {result['name']} ({result['id']})")
-          EOF
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add quiver_signals.json
+          git commit -m "Update quiver_signals.json $(date -u +%Y-%m-%d)" || echo "No changes to commit"
+          git push
