@@ -1,24 +1,116 @@
 {
   "generated": "2026-07-03",
-  "generated_at": "2026-07-03T00:27:39.527470+00:00",
+  "generated_at": "2026-07-03T01:35:50.965690+00:00",
+  "endpoints_used": {
+    "congressional": "live/congresstrading",
+    "trump": "bulk/trumpstocktrades",
+    "contracts": "live/govcontractsall",
+    "lobbying": "live/lobbying",
+    "dark_pool": "live/offexchange"
+  },
   "exit_signals": [],
+  "top_signals": [],
   "double_signals": [],
   "cluster_signals": [],
   "vip_congressional": [],
   "all_signals_ranked": [
     {
-      "ticker": "LUMN",
+      "ticker": "MDLN",
       "tier": 6,
-      "tier_label": "LOBBYING ONLY",
+      "tier_label": "GOV/LOBBYING ONLY",
       "datasets": 1,
       "quiver_score": 10,
       "is_cluster": false,
       "is_vip": false,
       "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Gov contract: $83.8M (2026-06-28)"
+      ],
+      "congress_entries": [],
+      "trump_entries": [],
+      "contract_entries": [
+        {
+          "ticker": "MDLN",
+          "amount": 83813946.74,
+          "amount_formatted": "$83.8M",
+          "date": "2026-06-28",
+          "description": "EXPRESS REPORT: MEDICAL SURGICAL PRIME VENDOR EXPENDITURES FOR THE MONTH OF MAY 2026"
+        }
+      ],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "TPC",
+      "tier": 6,
+      "tier_label": "GOV/LOBBYING ONLY",
+      "datasets": 1,
+      "quiver_score": 10,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Gov contract: $81.8M (2026-06-08)"
+      ],
+      "congress_entries": [],
+      "trump_entries": [],
+      "contract_entries": [
+        {
+          "ticker": "TPC",
+          "amount": 81833273.0,
+          "amount_formatted": "$81.8M",
+          "date": "2026-06-08",
+          "description": "NEMETZ PHASE IV"
+        }
+      ],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "GD",
+      "tier": 6,
+      "tier_label": "GOV/LOBBYING ONLY",
+      "datasets": 1,
+      "quiver_score": 10,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Gov contract: $71.4M (2026-06-03)"
+      ],
+      "congress_entries": [],
+      "trump_entries": [],
+      "contract_entries": [
+        {
+          "ticker": "GD",
+          "amount": 71419226.0,
+          "amount_formatted": "$71.4M",
+          "date": "2026-06-03",
+          "description": "CONSOLIDATED TOWERS AND SURVEILLANCE EQUIPMENT"
+        }
+      ],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "LUMN",
+      "tier": 6,
+      "tier_label": "GOV/LOBBYING ONLY",
+      "datasets": 1,
+      "quiver_score": 10,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
       "signals": [
         "Lobbying: $0.7M (2026-07-02)"
       ],
       "congress_entries": [],
+      "trump_entries": [],
+      "contract_entries": [],
       "lobbying_entries": [
         {
           "ticker": "LUMN",
@@ -26,16 +118,22 @@
           "date": "2026-07-02",
           "client": "LUMEN TECHNOLOGIES INC."
         }
-      ]
+      ],
+      "dark_pool_entries": []
     }
   ],
   "summary": {
-    "total_tickers_flagged": 1,
+    "total_tickers_flagged": 4,
+    "top_signals": 0,
     "double_signals": 0,
     "clusters": 0,
     "vip_buys": 0,
+    "trump_signals": 0,
     "exit_signals": 0,
-    "congressional_buys_processed": 0,
-    "lobbying_processed": 1
+    "congressional_buys": 0,
+    "trump_trades": 0,
+    "contracts": 3,
+    "lobbying": 1,
+    "dark_pool_flags": 0
   }
 }
