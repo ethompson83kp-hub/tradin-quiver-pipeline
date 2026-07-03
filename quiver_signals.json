@@ -1,0 +1,41 @@
+{
+  "generated": "2026-07-03",
+  "generated_at": "2026-07-03T00:27:39.527470+00:00",
+  "exit_signals": [],
+  "double_signals": [],
+  "cluster_signals": [],
+  "vip_congressional": [],
+  "all_signals_ranked": [
+    {
+      "ticker": "LUMN",
+      "tier": 6,
+      "tier_label": "LOBBYING ONLY",
+      "datasets": 1,
+      "quiver_score": 10,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "signals": [
+        "Lobbying: $0.7M (2026-07-02)"
+      ],
+      "congress_entries": [],
+      "lobbying_entries": [
+        {
+          "ticker": "LUMN",
+          "amount": 740000.0,
+          "date": "2026-07-02",
+          "client": "LUMEN TECHNOLOGIES INC."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_tickers_flagged": 1,
+    "double_signals": 0,
+    "clusters": 0,
+    "vip_buys": 0,
+    "exit_signals": 0,
+    "congressional_buys_processed": 0,
+    "lobbying_processed": 1
+  }
+}
