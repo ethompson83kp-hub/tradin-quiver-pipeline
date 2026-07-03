@@ -1,7 +1,6 @@
 """
 quiver_research.py — Swing Strategy v2.1
-Correct Hobbyist-tier REST endpoints confirmed via query_quiver_api.
-Runs via GitHub Actions at 6:45pm ET every weekday.
+Field names confirmed from live API response.
 """
 
 import os, json, requests
@@ -30,61 +29,64 @@ def safe_get(endpoint, label, params=None):
         print(f"  {label} unavailable: {e}")
         return []
 
-def fetch_congress():
-    return get("live/congresstrading")
-
-def fetch_trump():
-    return safe_get("bulk/trumpstocktrades", "Trump trades")
-
-def fetch_contracts():
-    return safe_get("live/govcontractsall", "Gov contracts")
-
-def fetch_lobbying():
-    return safe_get("live/lobbying", "Lobbying")
-
-def fetch_dark_pool():
-    return safe_get("live/offexchange", "Dark pool")
-
 def process_congress(raw):
     buys, sells = [], []
     print(f"  Raw congressional records: {len(raw)}")
     for t in raw:
-        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
+        ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker or ticker == "N/A":
             continue
-        txn = (t.get("Transaction") or t.get("transaction") or "").lower()
-        filed = (t.get("Filed") or t.get("filed") or "").strip()
-        amount = (t.get("Amount") or t.get("amount") or "").strip()
-        traded = (t.get("Traded") or t.get("traded") or "").strip()
-        politician = (t.get("Representative") or t.get("representative") or "").lower()
-        if not filed:
+        txn = (t.get("Transaction") or "").lower()
+        # Confirmed field names from live API
+        report_date = (t.get("ReportDate") or "").strip()  # this is the disclosure/filed date
+        traded_date = (t.get("TransactionDate") or "").strip()
+        amount_raw = t.get("Amount") or 0  # float like 1001.0
+        politician = (t.get("Representative") or "").lower()
+        party = t.get("Party") or ""
+        house = t.get("House") or ""
+
+        if not report_date:
             continue
         try:
-            filed_date = datetime.fromisoformat(filed).date()
+            report_dt = datetime.fromisoformat(report_date).date()
         except ValueError:
             continue
-        if filed_date < datetime.fromisoformat(thirty_days_ago).date():
+        if report_dt < datetime.fromisoformat(thirty_days_ago).date():
             continue
+
         is_vip = any(v in politician for v in VIP_POLITICIANS)
+
+        try:
+            amount_float = float(amount_raw)
+        except (TypeError, ValueError):
+            amount_float = 0
+
         if "purchase" in txn or "buy" in txn:
             buys.append({
                 "ticker": ticker,
-                "politician": t.get("Representative") or t.get("representative") or "",
-                "chamber": t.get("Chamber") or t.get("chamber") or "",
-                "party": t.get("Party") or t.get("party") or "",
-                "amount": amount, "traded": traded, "filed": filed,
-                "days_old": (today - filed_date).days,
+                "politician": t.get("Representative") or "",
+                "chamber": house,
+                "party": party,
+                "amount": amount_raw,
+                "amount_float": amount_float,
+                "traded": traded_date,
+                "filed": report_date,
+                "days_old": (today - report_dt).days,
                 "is_vip": is_vip,
-                "is_aschenbrenner": ticker in ASCHENBRENNER_LONGS
+                "is_aschenbrenner": ticker in ASCHENBRENNER_LONGS,
+                "excess_return": t.get("ExcessReturn") or 0
             })
         elif ("sale" in txn or "sell" in txn) and ticker in OPEN_POSITIONS:
             sells.append({
                 "ticker": ticker,
-                "politician": t.get("Representative") or t.get("representative") or "",
-                "amount": amount, "filed": filed,
+                "politician": t.get("Representative") or "",
+                "amount": amount_raw,
+                "filed": report_date,
                 "action": "EXIT_SIGNAL — congressional SELL on open position"
             })
+
     print(f"  Congressional buys: {len(buys)}, exit signals: {len(sells)}")
+
     from collections import defaultdict
     tb = defaultdict(list)
     for b in buys:
@@ -106,10 +108,12 @@ def process_congress(raw):
 def process_trump(raw):
     results = []
     for t in raw:
-        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
+        ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker or ticker == "N/A":
             continue
-        traded = (t.get("Traded") or t.get("traded") or "").strip()
+        # Confirmed field names: Filed and Traded
+        traded = (t.get("Traded") or "").strip()
+        filed = (t.get("Filed") or "").strip()
         if not traded:
             continue
         try:
@@ -118,25 +122,26 @@ def process_trump(raw):
             continue
         if traded_date < datetime.fromisoformat(thirty_days_ago).date():
             continue
-        txn = (t.get("Transaction") or t.get("transaction") or "").lower()
+        txn = (t.get("Transaction") or "").lower()
         if "purchase" in txn or "buy" in txn:
             results.append({
                 "ticker": ticker,
                 "traded": traded,
-                "amount": t.get("Amount") or t.get("amount") or "",
-                "company": t.get("Company") or t.get("company") or "",
-                "excess_return": t.get("excess_return") or 0
+                "filed": filed,
+                "amount": t.get("Amount") or "",
+                "company": t.get("Company") or "",
+                "excess_return": t.get("ExcessReturn") or 0
             })
     return results
 
 def process_contracts(raw):
     results = []
     for t in raw:
-        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
+        ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker:
             continue
         try:
-            amount = float(t.get("Amount") or t.get("amount") or 0)
+            amount = float(t.get("Amount") or 0)
         except (TypeError, ValueError):
             continue
         date = (t.get("Date") or t.get("date") or "").strip()
@@ -148,18 +153,18 @@ def process_contracts(raw):
                 "amount": amount,
                 "amount_formatted": f"${amount/1e6:.1f}M",
                 "date": date,
-                "description": t.get("Description") or t.get("description") or ""
+                "description": t.get("Description") or ""
             })
     return results
 
 def process_lobbying(raw):
     results = []
     for t in raw:
-        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
+        ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker:
             continue
         try:
-            amount = float(t.get("Amount") or t.get("amount") or 0)
+            amount = float(t.get("Amount") or 0)
         except (TypeError, ValueError):
             continue
         date = (t.get("Date") or t.get("date") or "").strip()
@@ -170,14 +175,14 @@ def process_lobbying(raw):
                 "ticker": ticker,
                 "amount": amount,
                 "date": date,
-                "client": t.get("Client") or t.get("client") or ""
+                "client": t.get("Client") or ""
             })
     return results
 
 def process_dark_pool(raw):
     results = []
     for t in raw:
-        ticker = (t.get("Ticker") or t.get("ticker") or "").strip().upper()
+        ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker:
             continue
         try:
@@ -204,10 +209,13 @@ def build_signal_map(congress_buys, trump_trades, contracts, lobbying, dark_pool
     for b in congress_buys:
         td[b["ticker"]]["congress"].append(b)
         td[b["ticker"]]["signals"].append(
-            f"Congressional buy: {b['politician']} {b['amount']} (filed {b['filed']}, {b['days_old']}d ago)")
+            f"Congressional buy: {b['politician']} ${b['amount_float']:,.0f} (filed {b['filed']}, {b['days_old']}d ago)"
+        )
     for tr in trump_trades:
         td[tr["ticker"]]["trump"].append(tr)
-        td[tr["ticker"]]["signals"].append(f"Trump trade: {tr['company']} {tr['amount']} ({tr['traded']})")
+        td[tr["ticker"]]["signals"].append(
+            f"Trump trade: {tr['company']} {tr['amount']} (traded {tr['traded']})"
+        )
     for c in contracts:
         td[c["ticker"]]["contracts"].append(c)
         td[c["ticker"]]["signals"].append(f"Gov contract: {c['amount_formatted']} ({c['date']})")
@@ -284,10 +292,10 @@ def main():
     congress_raw = get("live/congresstrading")
     print(f"  Got {len(congress_raw)} raw records")
 
-    trump_raw = fetch_trump()
-    contracts_raw = fetch_contracts()
-    lobbying_raw = fetch_lobbying()
-    dark_pool_raw = fetch_dark_pool()
+    trump_raw = safe_get("bulk/trumpstocktrades", "Trump trades")
+    contracts_raw = safe_get("live/govcontractsall", "Gov contracts")
+    lobbying_raw = safe_get("live/lobbying", "Lobbying")
+    dark_pool_raw = safe_get("live/offexchange", "Dark pool")
 
     congress_buys, exit_signals = process_congress(congress_raw)
     trump_trades = process_trump(trump_raw)
@@ -300,13 +308,6 @@ def main():
     output = {
         "generated": today.isoformat(),
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "endpoints_used": {
-            "congressional": "live/congresstrading",
-            "trump": "bulk/trumpstocktrades",
-            "contracts": "live/govcontractsall",
-            "lobbying": "live/lobbying",
-            "dark_pool": "live/offexchange"
-        },
         "exit_signals": exit_signals,
         "top_signals": [s for s in signals if s["tier"] == 1],
         "double_signals": [s for s in signals if s["tier"] == 2],
