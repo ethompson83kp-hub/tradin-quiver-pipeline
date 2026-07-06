@@ -32,6 +32,7 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
+          git pull --rebase origin main
           git add quiver_signals.json open_positions.json
           git commit -m "Update signals and positions $(date -u +%Y-%m-%d)" || echo "No changes to commit"
           git push
