@@ -20,12 +20,13 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests google-auth google-auth-httplib2 google-api-python-client
 
       - name: Run Quiver research pipeline
         env:
           QUIVER_API_KEY: ${{ secrets.QUIVER_API_KEY }}
           GH_PAT: ${{ secrets.GH_PAT }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python quiver_research.py
 
       - name: Commit signals to repo
