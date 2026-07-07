@@ -1,16 +1,17 @@
 """
 quiver_research.py — Swing Strategy v2.1
-Field names confirmed from live API response.
-Open positions loaded dynamically from open_positions.json in repo.
+Open positions read automatically from Google Drive (written by daily trading trigger).
 """
 
-import os, json, requests, urllib.request, base64
+import os, json, requests, base64
 from datetime import datetime, timedelta, timezone
 
 QUIVER_TOKEN = os.environ["QUIVER_API_KEY"]
 GH_PAT = os.environ.get("GH_PAT", "")
+GOOGLE_SA_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
 QUIVER_BASE = "https://api.quiverquant.com/beta"
 REPO = "ethompson83kp-hub/tradin-quiver-pipeline"
+DRIVE_FOLDER_ID = "1OHkZnvWHr13aAF7tq5dLph4Gs1wK7RlY"
 ASCHENBRENNER_LONGS = ["NBIS","SNDK","BE","CRWV","CORZ","IREN","APLD","RIOT","CLSK","SEI","BTDR"]
 VIP_POLITICIANS = ["nancy pelosi","scott bessent","lutnick","wright","gabbard"]
 HEADERS = {"Authorization": f"Bearer {QUIVER_TOKEN}"}
@@ -19,16 +20,34 @@ GH_HEADERS = {"Authorization": f"token {GH_PAT}", "Content-Type": "application/j
 today = datetime.now(timezone.utc).date()
 thirty_days_ago = (today - timedelta(days=30)).isoformat()
 
-# Load open positions dynamically
-try:
-    with urllib.request.urlopen(
-        f"https://raw.githubusercontent.com/{REPO}/main/open_positions.json"
-    ) as f:
-        OPEN_POSITIONS = json.load(f)
-    print(f"  Open positions loaded: {OPEN_POSITIONS}")
-except Exception as e:
-    print(f"  Could not load open_positions.json: {e} — using empty list")
-    OPEN_POSITIONS = []
+# Read open positions from Google Drive (written by daily trading trigger)
+OPEN_POSITIONS = []
+if GOOGLE_SA_JSON:
+    try:
+        from google.oauth2 import service_account
+        from googleapiclient.discovery import build
+        creds = service_account.Credentials.from_service_account_info(
+            json.loads(GOOGLE_SA_JSON),
+            scopes=["https://www.googleapis.com/auth/drive.readonly"]
+        )
+        svc = build("drive", "v3", credentials=creds)
+        res = svc.files().list(
+            q=f"name='open_positions.json' and '{DRIVE_FOLDER_ID}' in parents",
+            fields="files(id,modifiedTime)",
+            orderBy="modifiedTime desc",
+            pageSize=1
+        ).execute()
+        files = res.get("files", [])
+        if files:
+            content = svc.files().get_media(fileId=files[0]["id"]).execute()
+            OPEN_POSITIONS = json.loads(content)
+            print(f"  Open positions from Drive: {OPEN_POSITIONS}")
+        else:
+            print("  open_positions.json not found in Drive — exit signals disabled")
+    except Exception as e:
+        print(f"  Could not read open positions from Drive: {e}")
+else:
+    print("  GOOGLE_SERVICE_ACCOUNT_JSON not set — exit signals disabled")
 
 def get(endpoint, params=None):
     r = requests.get(f"{QUIVER_BASE}/{endpoint}", headers=HEADERS, params=params, timeout=30)
@@ -44,39 +63,28 @@ def safe_get(endpoint, label, params=None):
         print(f"  {label} unavailable: {e}")
         return []
 
-def push_open_positions(positions):
-    """Push current open positions list to GitHub repo."""
+def push_open_positions_to_github(positions):
     if not GH_PAT:
-        print("  GH_PAT not set — skipping open_positions.json push")
         return
     try:
         url = f"https://api.github.com/repos/{REPO}/contents/open_positions.json"
-        # Get current SHA if file exists
         sha = None
-        try:
-            r = requests.get(url, headers=GH_HEADERS, timeout=10)
-            if r.status_code == 200:
-                sha = r.json().get("sha")
-        except Exception:
-            pass
+        r = requests.get(url, headers=GH_HEADERS, timeout=10)
+        if r.status_code == 200:
+            sha = r.json().get("sha")
         content = base64.b64encode(json.dumps(positions).encode()).decode()
-        body = {
-            "message": f"Update open positions {today.isoformat()}",
-            "content": content
-        }
+        body = {"message": f"Update open positions {today.isoformat()}", "content": content}
         if sha:
             body["sha"] = sha
         r = requests.put(url, headers=GH_HEADERS, json=body, timeout=10)
-        if r.status_code in (200, 201):
-            print(f"  open_positions.json pushed: {positions}")
-        else:
-            print(f"  open_positions.json push failed: {r.status_code} {r.text[:100]}")
+        print(f"  open_positions.json pushed to GitHub: {positions}" if r.status_code in (200,201) else f"  GitHub push failed: {r.status_code}")
     except Exception as e:
-        print(f"  open_positions.json push error: {e}")
+        print(f"  GitHub push error: {e}")
 
 def process_congress(raw):
     buys, sells = [], []
     print(f"  Raw congressional records: {len(raw)}")
+    seen = set()
     for t in raw:
         ticker = (t.get("Ticker") or "").strip().upper()
         if not ticker or ticker == "N/A":
@@ -102,6 +110,11 @@ def process_congress(raw):
         except (TypeError, ValueError):
             amount_float = 0
         if "purchase" in txn or "buy" in txn:
+            # Deduplicate by politician + ticker + traded date to avoid false clusters
+            dedup_key = (politician, ticker, traded_date)
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
             buys.append({
                 "ticker": ticker,
                 "politician": t.get("Representative") or "",
@@ -120,7 +133,7 @@ def process_congress(raw):
                 "amount": amount_raw, "filed": report_date,
                 "action": "EXIT_SIGNAL — congressional SELL on open position"
             })
-    print(f"  Congressional buys: {len(buys)}, exit signals: {len(sells)}")
+    print(f"  Congressional buys (deduplicated): {len(buys)}, exit signals: {len(sells)}")
     from collections import defaultdict
     tb = defaultdict(list)
     for b in buys:
@@ -313,6 +326,9 @@ def main():
     lobbying = process_lobbying(lobbying_raw)
     dark_pool = process_dark_pool(dark_pool_raw)
     signals = build_signal_map(congress_buys, trump_trades, contracts, lobbying, dark_pool)
+
+    # Push open positions to GitHub for reference
+    push_open_positions_to_github(OPEN_POSITIONS)
 
     output = {
         "generated": today.isoformat(),
