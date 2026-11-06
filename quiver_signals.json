@@ -1,10 +1,71 @@
 {
-  "generated": "2026-11-05",
-  "generated_at": "2026-11-05T02:49:51.392858+00:00",
+  "generated": "2026-11-06",
+  "generated_at": "2026-11-06T02:50:43.312614+00:00",
   "open_positions_watched": [],
   "exit_signals": [],
   "top_signals": [],
   "double_signals": [
+    {
+      "ticker": "NVDA",
+      "tier": 2,
+      "tier_label": "DOUBLE SIGNAL",
+      "datasets": 2,
+      "quiver_score": 40,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-11-05, 1d ago)",
+        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 15d ago)",
+        "Lobbying: $2.1M (2026-10-20)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "NVDA",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-23",
+          "filed": "2026-11-05",
+          "days_old": 1,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -10.394469639386465,
+          "is_cluster": false,
+          "cluster_count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "politician": "Cleo Fields",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-01",
+          "filed": "2026-10-22",
+          "days_old": 15,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -17.296886769303793,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [
+        {
+          "ticker": "NVDA",
+          "amount": 2150000.0,
+          "date": "2026-10-20",
+          "client": "NVIDIA CORPORATION"
+        }
+      ],
+      "dark_pool_entries": []
+    },
     {
       "ticker": "MU",
       "tier": 2,
@@ -16,9 +77,9 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
         "Lobbying: $0.7M (2026-10-20)"
       ],
       "congress_entries": [
@@ -31,10 +92,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-01",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -27.88040393282654,
+          "excess_return": -36.14553968777189,
           "is_cluster": true,
           "cluster_count": 3
         },
@@ -47,10 +108,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-25",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -25.677173249872006,
+          "excess_return": -34.17103287411422,
           "is_cluster": true,
           "cluster_count": 3
         },
@@ -63,10 +124,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-24",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -26.091116467715892,
+          "excess_return": -34.58245466264698,
           "is_cluster": true,
           "cluster_count": 3
         }
@@ -94,8 +155,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)",
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)",
         "Lobbying: $2.6M (2026-10-20)"
       ],
       "congress_entries": [
@@ -108,10 +169,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -6.450927190273532,
+          "excess_return": -2.1505571899046405,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -124,10 +185,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -0.06735662807756126,
+          "excess_return": 4.193095796615509,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -149,14 +210,14 @@
       "tier": 2,
       "tier_label": "DOUBLE SIGNAL",
       "datasets": 2,
-      "quiver_score": 40,
+      "quiver_score": 37,
       "is_cluster": false,
       "is_vip": false,
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 14d ago)",
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 15d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $0.6M (2026-10-20)"
       ],
       "congress_entries": [
@@ -169,10 +230,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-22",
-          "days_old": 14,
+          "days_old": 15,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -11.187070813759036,
+          "excess_return": -16.290105226361874,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -185,10 +246,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-22",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -11.32232431806957,
+          "excess_return": -16.435653171043853,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -206,50 +267,6 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "NVDA",
-      "tier": 2,
-      "tier_label": "DOUBLE SIGNAL",
-      "datasets": 2,
-      "quiver_score": 40,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 14d ago)",
-        "Lobbying: $2.1M (2026-10-20)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "NVDA",
-          "politician": "Cleo Fields",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-01",
-          "filed": "2026-10-22",
-          "days_old": 14,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -13.657078983260865,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [
-        {
-          "ticker": "NVDA",
-          "amount": 2150000.0,
-          "date": "2026-10-20",
-          "client": "NVIDIA CORPORATION"
-        }
-      ],
-      "dark_pool_entries": []
-    },
-    {
       "ticker": "MSFT",
       "tier": 2,
       "tier_label": "DOUBLE SIGNAL",
@@ -260,7 +277,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $2.4M (2026-10-20)"
       ],
       "congress_entries": [
@@ -273,10 +290,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-30",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 7.804890704230033,
+          "excess_return": 8.32686891925724,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -304,7 +321,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $1.0M (2026-10-20)"
       ],
       "congress_entries": [
@@ -317,10 +334,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -28.052131998064613,
+          "excess_return": -28.266248747771645,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -348,7 +365,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $2.8M (2026-10-20)"
       ],
       "congress_entries": [
@@ -361,10 +378,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -4.419998433001678,
+          "excess_return": -0.13370539735750775,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -392,7 +409,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $1.3M (2026-10-20)"
       ],
       "congress_entries": [
@@ -405,10 +422,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.14438968952685,
+          "excess_return": 14.67323742897787,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -436,7 +453,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)",
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)",
         "Lobbying: $5.9M (2026-10-20)"
       ],
       "congress_entries": [
@@ -449,10 +466,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-22",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -13.34895139793545,
+          "excess_return": -12.40957410128452,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -480,7 +497,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)",
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)",
         "Lobbying: $2.8M (2026-10-20)"
       ],
       "congress_entries": [
@@ -493,10 +510,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-02",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 2.251168960793666,
+          "excess_return": 4.7283421078856485,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -561,8 +578,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -574,10 +591,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-30",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -5.961855217101306,
+          "excess_return": -11.311590191614467,
           "is_cluster": true,
           "cluster_count": 2
         },
@@ -590,10 +607,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 4.645921272674737,
+          "excess_return": -1.773354557212092,
           "is_cluster": true,
           "cluster_count": 2
         }
@@ -614,8 +631,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -627,10 +644,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.723024126530683,
+          "excess_return": 11.08969014686775,
           "is_cluster": true,
           "cluster_count": 2
         },
@@ -643,10 +660,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-09",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 18.1104006373737,
+          "excess_return": 13.290890101504587,
           "is_cluster": true,
           "cluster_count": 2
         }
@@ -659,6 +676,42 @@
   ],
   "vip_congressional": [
     {
+      "ticker": "PG",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 25,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-11-05, 1d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "PG",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-23",
+          "filed": "2026-11-05",
+          "days_old": 1,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 7.298789116288801,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
       "ticker": "FMAO",
       "tier": 4,
       "tier_label": "CONGRESSIONAL BUY",
@@ -669,7 +722,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Robert E. Latta $1,001 (filed 2026-11-03, 2d ago)"
+        "Congressional buy: Robert E. Latta $1,001 (filed 2026-11-03, 3d ago)"
       ],
       "congress_entries": [
         {
@@ -681,10 +734,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-20",
           "filed": "2026-11-03",
-          "days_old": 2,
+          "days_old": 3,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 5.714768410068315,
+          "excess_return": 6.951488732720591,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -705,7 +758,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 6d ago)"
+        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 7d ago)"
       ],
       "congress_entries": [
         {
@@ -717,10 +770,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-30",
-          "days_old": 6,
+          "days_old": 7,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.586891847702773,
+          "excess_return": 21.09716706478856,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -741,7 +794,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 6d ago)"
+        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 7d ago)"
       ],
       "congress_entries": [
         {
@@ -753,10 +806,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-30",
-          "days_old": 6,
+          "days_old": 7,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 20.132152700555274,
+          "excess_return": 11.611642175394897,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -777,7 +830,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)"
       ],
       "congress_entries": [
         {
@@ -789,46 +842,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 4.137415769543321,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "LRCX",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 25,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "LRCX",
-          "politician": "David J. Taylor",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-15",
-          "filed": "2026-10-29",
-          "days_old": 7,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -19.53844603523641,
+          "excess_return": 6.2666947200276875,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -849,8 +866,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)",
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)"
       ],
       "congress_entries": [
         {
@@ -862,10 +879,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.607399039523907,
+          "excess_return": 10.353559318004198,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -878,10 +895,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.093574137819575,
+          "excess_return": 13.715494093684859,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -892,68 +909,32 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "EL",
+      "ticker": "LRCX",
       "tier": 4,
       "tier_label": "CONGRESSIONAL BUY",
       "datasets": 1,
-      "quiver_score": 22,
+      "quiver_score": 25,
       "is_cluster": false,
       "is_vip": false,
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 17d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)"
       ],
       "congress_entries": [
         {
-          "ticker": "EL",
-          "politician": "Jonathan Jackson",
+          "ticker": "LRCX",
+          "politician": "David J. Taylor",
           "chamber": "Representatives",
-          "party": "D",
-          "amount": "50001.0",
-          "amount_float": 50001.0,
-          "traded": "2026-09-28",
-          "filed": "2026-10-19",
-          "days_old": 17,
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-15",
+          "filed": "2026-10-29",
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 17.067156156428812,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "GH",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Jonathan Jackson $15,001 (filed 2026-10-19, 17d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "GH",
-          "politician": "Jonathan Jackson",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "15001.0",
-          "amount_float": 15001.0,
-          "traded": "2026-09-28",
-          "filed": "2026-10-19",
-          "days_old": 17,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -5.1005885764725925,
+          "excess_return": -28.253260895710035,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -974,7 +955,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 17d ago)"
+        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 18d ago)"
       ],
       "congress_entries": [
         {
@@ -986,10 +967,82 @@
           "amount_float": 50001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-19",
-          "days_old": 17,
+          "days_old": 18,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -29.931823074564882,
+          "excess_return": -30.807907988705406,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "EL",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 18d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "EL",
+          "politician": "Jonathan Jackson",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "50001.0",
+          "amount_float": 50001.0,
+          "traded": "2026-09-28",
+          "filed": "2026-10-19",
+          "days_old": 18,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 16.852510710779672,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "GH",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Jonathan Jackson $15,001 (filed 2026-10-19, 18d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "GH",
+          "politician": "Jonathan Jackson",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "15001.0",
+          "amount_float": 15001.0,
+          "traded": "2026-09-28",
+          "filed": "2026-10-19",
+          "days_old": 18,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -9.265136013445122,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1010,7 +1063,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Laurel Lee $15,001 (filed 2026-10-16, 20d ago)"
+        "Congressional buy: Laurel Lee $15,001 (filed 2026-10-16, 21d ago)"
       ],
       "congress_entries": [
         {
@@ -1022,10 +1075,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-16",
-          "days_old": 20,
+          "days_old": 21,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -22.29664327532419,
+          "excess_return": -26.97179908073543,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1046,7 +1099,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)"
       ],
       "congress_entries": [
         {
@@ -1058,10 +1111,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.567513606410623,
+          "excess_return": 11.365152799708117,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1082,7 +1135,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Richard Dean Dr Mccormick $1,001 (filed 2026-10-14, 22d ago)"
+        "Congressional buy: Richard Dean Dr Mccormick $1,001 (filed 2026-10-14, 23d ago)"
       ],
       "congress_entries": [
         {
@@ -1094,46 +1147,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-14",
-          "days_old": 22,
+          "days_old": 23,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.17080502782298,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "ADI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "ADI",
-          "politician": "Rick Larsen",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-08",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 0.9902133083759179,
+          "excess_return": 16.234981547288324,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1154,7 +1171,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1166,10 +1183,46 @@
           "amount_float": 1001.0,
           "traded": "2026-10-08",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.918029562121248,
+          "excess_return": 13.450493870676423,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "ADI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "ADI",
+          "politician": "Rick Larsen",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-08",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -5.820474380646262,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1190,7 +1243,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1202,118 +1255,10 @@
           "amount_float": 15001.0,
           "traded": "2026-10-01",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -23.22473341639961,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "RARE",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "RARE",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 11.680175948618919,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "AEIS",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "AEIS",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -25.65324708963132,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "ALGM",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "ALGM",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -14.947754254408661,
+          "excess_return": -25.834013666884633,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1334,7 +1279,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1346,10 +1291,118 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -8.513451098794027,
+          "excess_return": -7.5058146151162175,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "AEIS",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "AEIS",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -30.409484257225674,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "RARE",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "RARE",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 5.687600732346134,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "ALGM",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "ALGM",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -22.720209337707658,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1370,7 +1423,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1382,10 +1435,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 14.636539567792898,
+          "excess_return": 12.625451231297482,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1406,7 +1459,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1418,46 +1471,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -3.4381289759399105,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "YETI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "YETI",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 13.253750885799263,
+          "excess_return": -11.315977611750874,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1478,7 +1495,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1490,10 +1507,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.145222280467596,
+          "excess_return": 13.222413613112021,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1514,7 +1531,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1526,10 +1543,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 1.0184865327877397,
+          "excess_return": -2.4958544770422026,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "YETI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "YETI",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 14.396522504612225,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1550,7 +1603,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1562,46 +1615,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -5.995763158654385,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "EPAC",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "EPAC",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-21",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 20.731320325427927,
+          "excess_return": -12.4959651713264,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1622,7 +1639,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1634,10 +1651,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-21",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 3.5899999729623833,
+          "excess_return": 2.829533289417629,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1648,7 +1665,7 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "APP",
+      "ticker": "EPAC",
       "tier": 4,
       "tier_label": "CONGRESSIONAL BUY",
       "datasets": 1,
@@ -1658,22 +1675,22 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
-          "ticker": "APP",
+          "ticker": "EPAC",
           "politician": "Gilbert Cisneros",
           "chamber": "Representatives",
           "party": "D",
           "amount": "1001.0",
           "amount_float": 1001.0,
-          "traded": "2026-09-18",
+          "traded": "2026-09-21",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -12.21414933222171,
+          "excess_return": 16.411157201670708,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1694,7 +1711,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1706,10 +1723,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.28257477477811,
+          "excess_return": 15.38881586147549,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "APP",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "APP",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-18",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 19.557145092659614,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1730,7 +1783,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1742,10 +1795,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 1.2600804188682433,
+          "excess_return": -0.04400761169144651,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1766,7 +1819,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1778,10 +1831,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 24.502487591975996,
+          "excess_return": 18.9627803585169,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1802,7 +1855,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1814,10 +1867,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.612273593620698,
+          "excess_return": 12.27581637391578,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1838,7 +1891,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1850,10 +1903,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.876879364805395,
+          "excess_return": 17.000148318642452,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1874,7 +1927,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1886,10 +1939,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -8.920046544212909,
+          "excess_return": -9.38406749550646,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1910,7 +1963,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1922,10 +1975,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 0.4253288897047851,
+          "excess_return": 2.3129552995082694,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -1946,7 +1999,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -1958,46 +2011,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 6.325363955695702,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "CACI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "CACI",
-          "politician": "Lisa Mcclain",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "15001.0",
-          "amount_float": 15001.0,
-          "traded": "2026-09-14",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -1.568373032997306,
+          "excess_return": 10.61271494920783,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2018,7 +2035,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -2030,10 +2047,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -0.7836407836407864,
+          "excess_return": -2.7998247264302516,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2054,7 +2071,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -2066,10 +2083,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -16.412963051967218,
+          "excess_return": -12.422066405468906,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "CACI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "CACI",
+          "politician": "Lisa Mcclain",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "15001.0",
+          "amount_float": 15001.0,
+          "traded": "2026-09-14",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -1.502107966104457,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2090,7 +2143,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -2102,10 +2155,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-03",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.330907863380153,
+          "excess_return": 9.420684688790807,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2126,7 +2179,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
       ],
       "congress_entries": [
         {
@@ -2138,46 +2191,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-08",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -28.53540479099103,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "SNOW",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "SNOW",
-          "politician": "Maria Elvira Salazar",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-04",
-          "filed": "2026-10-07",
-          "days_old": 29,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -13.358371504042339,
+          "excess_return": -33.40261057901737,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2198,7 +2215,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
       ],
       "congress_entries": [
         {
@@ -2210,10 +2227,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-04",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.443312583278148,
+          "excess_return": 5.136094921066759,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "SNOW",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "SNOW",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-04",
+          "filed": "2026-10-07",
+          "days_old": 30,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -15.252660111971554,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2226,6 +2279,67 @@
   ],
   "all_signals_ranked": [
     {
+      "ticker": "NVDA",
+      "tier": 2,
+      "tier_label": "DOUBLE SIGNAL",
+      "datasets": 2,
+      "quiver_score": 40,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-11-05, 1d ago)",
+        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 15d ago)",
+        "Lobbying: $2.1M (2026-10-20)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "NVDA",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-23",
+          "filed": "2026-11-05",
+          "days_old": 1,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -10.394469639386465,
+          "is_cluster": false,
+          "cluster_count": 1
+        },
+        {
+          "ticker": "NVDA",
+          "politician": "Cleo Fields",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-01",
+          "filed": "2026-10-22",
+          "days_old": 15,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -17.296886769303793,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [
+        {
+          "ticker": "NVDA",
+          "amount": 2150000.0,
+          "date": "2026-10-20",
+          "client": "NVIDIA CORPORATION"
+        }
+      ],
+      "dark_pool_entries": []
+    },
+    {
       "ticker": "MU",
       "tier": 2,
       "tier_label": "DOUBLE SIGNAL",
@@ -2236,9 +2350,9 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
-        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 4d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
+        "Congressional buy: John J Mr Mcguire Iii $1,001 (filed 2026-11-01, 5d ago)",
         "Lobbying: $0.7M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2251,10 +2365,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-01",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -27.88040393282654,
+          "excess_return": -36.14553968777189,
           "is_cluster": true,
           "cluster_count": 3
         },
@@ -2267,10 +2381,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-25",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -25.677173249872006,
+          "excess_return": -34.17103287411422,
           "is_cluster": true,
           "cluster_count": 3
         },
@@ -2283,10 +2397,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-24",
           "filed": "2026-11-01",
-          "days_old": 4,
+          "days_old": 5,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -26.091116467715892,
+          "excess_return": -34.58245466264698,
           "is_cluster": true,
           "cluster_count": 3
         }
@@ -2314,8 +2428,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)",
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)",
         "Lobbying: $2.6M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2328,10 +2442,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -6.450927190273532,
+          "excess_return": -2.1505571899046405,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -2344,10 +2458,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -0.06735662807756126,
+          "excess_return": 4.193095796615509,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2369,14 +2483,14 @@
       "tier": 2,
       "tier_label": "DOUBLE SIGNAL",
       "datasets": 2,
-      "quiver_score": 40,
+      "quiver_score": 37,
       "is_cluster": false,
       "is_vip": false,
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 14d ago)",
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 15d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $0.6M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2389,10 +2503,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-22",
-          "days_old": 14,
+          "days_old": 15,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -11.187070813759036,
+          "excess_return": -16.290105226361874,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -2405,10 +2519,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-22",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -11.32232431806957,
+          "excess_return": -16.435653171043853,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2426,50 +2540,6 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "NVDA",
-      "tier": 2,
-      "tier_label": "DOUBLE SIGNAL",
-      "datasets": 2,
-      "quiver_score": 40,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Cleo Fields $1,001 (filed 2026-10-22, 14d ago)",
-        "Lobbying: $2.1M (2026-10-20)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "NVDA",
-          "politician": "Cleo Fields",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-01",
-          "filed": "2026-10-22",
-          "days_old": 14,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -13.657078983260865,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [
-        {
-          "ticker": "NVDA",
-          "amount": 2150000.0,
-          "date": "2026-10-20",
-          "client": "NVIDIA CORPORATION"
-        }
-      ],
-      "dark_pool_entries": []
-    },
-    {
       "ticker": "MSFT",
       "tier": 2,
       "tier_label": "DOUBLE SIGNAL",
@@ -2480,7 +2550,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $2.4M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2493,10 +2563,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-30",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 7.804890704230033,
+          "excess_return": 8.32686891925724,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2524,7 +2594,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $1.0M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2537,10 +2607,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -28.052131998064613,
+          "excess_return": -28.266248747771645,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2568,7 +2638,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $2.8M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2581,10 +2651,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -4.419998433001678,
+          "excess_return": -0.13370539735750775,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2612,7 +2682,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
         "Lobbying: $1.3M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2625,10 +2695,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.14438968952685,
+          "excess_return": 14.67323742897787,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2656,7 +2726,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)",
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)",
         "Lobbying: $5.9M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2669,10 +2739,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-22",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -13.34895139793545,
+          "excess_return": -12.40957410128452,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2700,7 +2770,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)",
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)",
         "Lobbying: $2.8M (2026-10-20)"
       ],
       "congress_entries": [
@@ -2713,10 +2783,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-02",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 2.251168960793666,
+          "excess_return": 4.7283421078856485,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2779,8 +2849,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)",
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)",
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -2792,10 +2862,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-30",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -5.961855217101306,
+          "excess_return": -11.311590191614467,
           "is_cluster": true,
           "cluster_count": 2
         },
@@ -2808,10 +2878,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 4.645921272674737,
+          "excess_return": -1.773354557212092,
           "is_cluster": true,
           "cluster_count": 2
         }
@@ -2832,8 +2902,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)",
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)",
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -2845,10 +2915,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.723024126530683,
+          "excess_return": 11.08969014686775,
           "is_cluster": true,
           "cluster_count": 2
         },
@@ -2861,12 +2931,48 @@
           "amount_float": 15001.0,
           "traded": "2026-09-09",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 18.1104006373737,
+          "excess_return": 13.290890101504587,
           "is_cluster": true,
           "cluster_count": 2
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "PG",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 25,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-11-05, 1d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "PG",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-23",
+          "filed": "2026-11-05",
+          "days_old": 1,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 7.298789116288801,
+          "is_cluster": false,
+          "cluster_count": 1
         }
       ],
       "trump_entries": [],
@@ -2885,7 +2991,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Robert E. Latta $1,001 (filed 2026-11-03, 2d ago)"
+        "Congressional buy: Robert E. Latta $1,001 (filed 2026-11-03, 3d ago)"
       ],
       "congress_entries": [
         {
@@ -2897,10 +3003,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-20",
           "filed": "2026-11-03",
-          "days_old": 2,
+          "days_old": 3,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 5.714768410068315,
+          "excess_return": 6.951488732720591,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2921,7 +3027,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 6d ago)"
+        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 7d ago)"
       ],
       "congress_entries": [
         {
@@ -2933,10 +3039,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-30",
-          "days_old": 6,
+          "days_old": 7,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.586891847702773,
+          "excess_return": 21.09716706478856,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2957,7 +3063,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 6d ago)"
+        "Congressional buy: Thomas H. Kean Jr $1,001 (filed 2026-10-30, 7d ago)"
       ],
       "congress_entries": [
         {
@@ -2969,10 +3075,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-30",
-          "days_old": 6,
+          "days_old": 7,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 20.132152700555274,
+          "excess_return": 11.611642175394897,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -2993,7 +3099,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)"
       ],
       "congress_entries": [
         {
@@ -3005,46 +3111,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 4.137415769543321,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "LRCX",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 25,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "LRCX",
-          "politician": "David J. Taylor",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-15",
-          "filed": "2026-10-29",
-          "days_old": 7,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -19.53844603523641,
+          "excess_return": 6.2666947200276875,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3065,8 +3135,8 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 7d ago)",
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)",
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)"
       ],
       "congress_entries": [
         {
@@ -3078,10 +3148,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-15",
           "filed": "2026-10-29",
-          "days_old": 7,
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.607399039523907,
+          "excess_return": 10.353559318004198,
           "is_cluster": false,
           "cluster_count": 1
         },
@@ -3094,10 +3164,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.093574137819575,
+          "excess_return": 13.715494093684859,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3108,68 +3178,32 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "EL",
+      "ticker": "LRCX",
       "tier": 4,
       "tier_label": "CONGRESSIONAL BUY",
       "datasets": 1,
-      "quiver_score": 22,
+      "quiver_score": 25,
       "is_cluster": false,
       "is_vip": false,
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 17d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-29, 8d ago)"
       ],
       "congress_entries": [
         {
-          "ticker": "EL",
-          "politician": "Jonathan Jackson",
+          "ticker": "LRCX",
+          "politician": "David J. Taylor",
           "chamber": "Representatives",
-          "party": "D",
-          "amount": "50001.0",
-          "amount_float": 50001.0,
-          "traded": "2026-09-28",
-          "filed": "2026-10-19",
-          "days_old": 17,
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-15",
+          "filed": "2026-10-29",
+          "days_old": 8,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 17.067156156428812,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "GH",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Jonathan Jackson $15,001 (filed 2026-10-19, 17d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "GH",
-          "politician": "Jonathan Jackson",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "15001.0",
-          "amount_float": 15001.0,
-          "traded": "2026-09-28",
-          "filed": "2026-10-19",
-          "days_old": 17,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -5.1005885764725925,
+          "excess_return": -28.253260895710035,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3190,7 +3224,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 17d ago)"
+        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 18d ago)"
       ],
       "congress_entries": [
         {
@@ -3202,10 +3236,82 @@
           "amount_float": 50001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-19",
-          "days_old": 17,
+          "days_old": 18,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -29.931823074564882,
+          "excess_return": -30.807907988705406,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "EL",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Jonathan Jackson $50,001 (filed 2026-10-19, 18d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "EL",
+          "politician": "Jonathan Jackson",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "50001.0",
+          "amount_float": 50001.0,
+          "traded": "2026-09-28",
+          "filed": "2026-10-19",
+          "days_old": 18,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 16.852510710779672,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "GH",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Jonathan Jackson $15,001 (filed 2026-10-19, 18d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "GH",
+          "politician": "Jonathan Jackson",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "15001.0",
+          "amount_float": 15001.0,
+          "traded": "2026-09-28",
+          "filed": "2026-10-19",
+          "days_old": 18,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -9.265136013445122,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3226,7 +3332,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Laurel Lee $15,001 (filed 2026-10-16, 20d ago)"
+        "Congressional buy: Laurel Lee $15,001 (filed 2026-10-16, 21d ago)"
       ],
       "congress_entries": [
         {
@@ -3238,10 +3344,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-16",
-          "days_old": 20,
+          "days_old": 21,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -22.29664327532419,
+          "excess_return": -26.97179908073543,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3262,7 +3368,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 21d ago)"
+        "Congressional buy: David J. Taylor $1,001 (filed 2026-10-15, 22d ago)"
       ],
       "congress_entries": [
         {
@@ -3274,10 +3380,10 @@
           "amount_float": 1001.0,
           "traded": "2026-10-09",
           "filed": "2026-10-15",
-          "days_old": 21,
+          "days_old": 22,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.567513606410623,
+          "excess_return": 11.365152799708117,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3298,7 +3404,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Richard Dean Dr Mccormick $1,001 (filed 2026-10-14, 22d ago)"
+        "Congressional buy: Richard Dean Dr Mccormick $1,001 (filed 2026-10-14, 23d ago)"
       ],
       "congress_entries": [
         {
@@ -3310,46 +3416,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-14",
-          "days_old": 22,
+          "days_old": 23,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.17080502782298,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "ADI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "ADI",
-          "politician": "Rick Larsen",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-10-08",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 0.9902133083759179,
+          "excess_return": 16.234981547288324,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3370,7 +3440,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3382,10 +3452,46 @@
           "amount_float": 1001.0,
           "traded": "2026-10-08",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 13.918029562121248,
+          "excess_return": 13.450493870676423,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "ADI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Rick Larsen $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "ADI",
+          "politician": "Rick Larsen",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-10-08",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -5.820474380646262,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3406,7 +3512,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3418,118 +3524,10 @@
           "amount_float": 15001.0,
           "traded": "2026-10-01",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -23.22473341639961,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "RARE",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "RARE",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 11.680175948618919,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "AEIS",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "AEIS",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -25.65324708963132,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "ALGM",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "ALGM",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -14.947754254408661,
+          "excess_return": -25.834013666884633,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3550,7 +3548,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3562,10 +3560,118 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -8.513451098794027,
+          "excess_return": -7.5058146151162175,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "AEIS",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "AEIS",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -30.409484257225674,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "RARE",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "RARE",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 5.687600732346134,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "ALGM",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "ALGM",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -22.720209337707658,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3586,7 +3692,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3598,10 +3704,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 14.636539567792898,
+          "excess_return": 12.625451231297482,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3622,7 +3728,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3634,46 +3740,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -3.4381289759399105,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "YETI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "YETI",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-29",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 13.253750885799263,
+          "excess_return": -11.315977611750874,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3694,7 +3764,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3706,10 +3776,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.145222280467596,
+          "excess_return": 13.222413613112021,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3730,7 +3800,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3742,10 +3812,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-29",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 1.0184865327877397,
+          "excess_return": -2.4958544770422026,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "YETI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "YETI",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-29",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 14.396522504612225,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3766,7 +3872,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3778,46 +3884,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-28",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -5.995763158654385,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "EPAC",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "EPAC",
-          "politician": "Gilbert Cisneros",
-          "chamber": "Representatives",
-          "party": "D",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-21",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": 20.731320325427927,
+          "excess_return": -12.4959651713264,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3838,7 +3908,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3850,10 +3920,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-21",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 3.5899999729623833,
+          "excess_return": 2.829533289417629,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3864,7 +3934,7 @@
       "dark_pool_entries": []
     },
     {
-      "ticker": "APP",
+      "ticker": "EPAC",
       "tier": 4,
       "tier_label": "CONGRESSIONAL BUY",
       "datasets": 1,
@@ -3874,22 +3944,22 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
-          "ticker": "APP",
+          "ticker": "EPAC",
           "politician": "Gilbert Cisneros",
           "chamber": "Representatives",
           "party": "D",
           "amount": "1001.0",
           "amount_float": 1001.0,
-          "traded": "2026-09-18",
+          "traded": "2026-09-21",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -12.21414933222171,
+          "excess_return": 16.411157201670708,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3910,7 +3980,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3922,10 +3992,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.28257477477811,
+          "excess_return": 15.38881586147549,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "APP",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "APP",
+          "politician": "Gilbert Cisneros",
+          "chamber": "Representatives",
+          "party": "D",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-18",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": 19.557145092659614,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3946,7 +4052,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3958,10 +4064,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 1.2600804188682433,
+          "excess_return": -0.04400761169144651,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -3982,7 +4088,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -3994,10 +4100,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-18",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 24.502487591975996,
+          "excess_return": 18.9627803585169,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4018,7 +4124,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4030,10 +4136,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 9.612273593620698,
+          "excess_return": 12.27581637391578,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4054,7 +4160,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4066,10 +4172,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 15.876879364805395,
+          "excess_return": 17.000148318642452,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4090,7 +4196,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4102,10 +4208,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -8.920046544212909,
+          "excess_return": -9.38406749550646,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4126,7 +4232,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4138,10 +4244,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-17",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 0.4253288897047851,
+          "excess_return": 2.3129552995082694,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4162,7 +4268,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4174,46 +4280,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 6.325363955695702,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "CACI",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "CACI",
-          "politician": "Lisa Mcclain",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "15001.0",
-          "amount_float": 15001.0,
-          "traded": "2026-09-14",
-          "filed": "2026-10-12",
-          "days_old": 24,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -1.568373032997306,
+          "excess_return": 10.61271494920783,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4234,7 +4304,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4246,10 +4316,10 @@
           "amount_float": 15001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -0.7836407836407864,
+          "excess_return": -2.7998247264302516,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4270,7 +4340,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Lisa Mcclain $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4282,10 +4352,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-14",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -16.412963051967218,
+          "excess_return": -12.422066405468906,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "CACI",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Lisa Mcclain $15,001 (filed 2026-10-12, 25d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "CACI",
+          "politician": "Lisa Mcclain",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "15001.0",
+          "amount_float": 15001.0,
+          "traded": "2026-09-14",
+          "filed": "2026-10-12",
+          "days_old": 25,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -1.502107966104457,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4306,7 +4412,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 24d ago)"
+        "Congressional buy: Gilbert Cisneros $1,001 (filed 2026-10-12, 25d ago)"
       ],
       "congress_entries": [
         {
@@ -4318,10 +4424,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-03",
           "filed": "2026-10-12",
-          "days_old": 24,
+          "days_old": 25,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.330907863380153,
+          "excess_return": 9.420684688790807,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4342,7 +4448,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
       ],
       "congress_entries": [
         {
@@ -4354,46 +4460,10 @@
           "amount_float": 1001.0,
           "traded": "2026-09-08",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": -28.53540479099103,
-          "is_cluster": false,
-          "cluster_count": 1
-        }
-      ],
-      "trump_entries": [],
-      "contract_entries": [],
-      "lobbying_entries": [],
-      "dark_pool_entries": []
-    },
-    {
-      "ticker": "SNOW",
-      "tier": 4,
-      "tier_label": "CONGRESSIONAL BUY",
-      "datasets": 1,
-      "quiver_score": 22,
-      "is_cluster": false,
-      "is_vip": false,
-      "is_aschenbrenner": false,
-      "has_trump_signal": false,
-      "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
-      ],
-      "congress_entries": [
-        {
-          "ticker": "SNOW",
-          "politician": "Maria Elvira Salazar",
-          "chamber": "Representatives",
-          "party": "R",
-          "amount": "1001.0",
-          "amount_float": 1001.0,
-          "traded": "2026-09-04",
-          "filed": "2026-10-07",
-          "days_old": 29,
-          "is_vip": false,
-          "is_aschenbrenner": false,
-          "excess_return": -13.358371504042339,
+          "excess_return": -33.40261057901737,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -4414,7 +4484,7 @@
       "is_aschenbrenner": false,
       "has_trump_signal": false,
       "signals": [
-        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 29d ago)"
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
       ],
       "congress_entries": [
         {
@@ -4426,10 +4496,46 @@
           "amount_float": 1001.0,
           "traded": "2026-09-04",
           "filed": "2026-10-07",
-          "days_old": 29,
+          "days_old": 30,
           "is_vip": false,
           "is_aschenbrenner": false,
-          "excess_return": 12.443312583278148,
+          "excess_return": 5.136094921066759,
+          "is_cluster": false,
+          "cluster_count": 1
+        }
+      ],
+      "trump_entries": [],
+      "contract_entries": [],
+      "lobbying_entries": [],
+      "dark_pool_entries": []
+    },
+    {
+      "ticker": "SNOW",
+      "tier": 4,
+      "tier_label": "CONGRESSIONAL BUY",
+      "datasets": 1,
+      "quiver_score": 22,
+      "is_cluster": false,
+      "is_vip": false,
+      "is_aschenbrenner": false,
+      "has_trump_signal": false,
+      "signals": [
+        "Congressional buy: Maria Elvira Salazar $1,001 (filed 2026-10-07, 30d ago)"
+      ],
+      "congress_entries": [
+        {
+          "ticker": "SNOW",
+          "politician": "Maria Elvira Salazar",
+          "chamber": "Representatives",
+          "party": "R",
+          "amount": "1001.0",
+          "amount_float": 1001.0,
+          "traded": "2026-09-04",
+          "filed": "2026-10-07",
+          "days_old": 30,
+          "is_vip": false,
+          "is_aschenbrenner": false,
+          "excess_return": -15.252660111971554,
           "is_cluster": false,
           "cluster_count": 1
         }
@@ -8582,14 +8688,14 @@
     }
   ],
   "summary": {
-    "total_tickers_flagged": 209,
+    "total_tickers_flagged": 210,
     "top_signals": 0,
     "double_signals": 11,
     "clusters": 3,
     "vip_buys": 0,
     "trump_signals": 0,
     "exit_signals": 0,
-    "congressional_buys": 62,
+    "congressional_buys": 64,
     "trump_trades": 0,
     "contracts": 3,
     "lobbying": 185,
